@@ -24,55 +24,55 @@ justify-content:center;
 align-items:center;
 min-height:100vh;
 text-align:center;
+padding-bottom:90px;
 }
 
 .container{
 width:350px;
 background:#111;
 border-radius:25px;
-padding:35px;
+padding:30px;
 box-shadow:0 0 25px rgba(0,255,255,.3);
 animation:fadeIn 1s;
 }
 
 .logo{
-width:180px;
-height:180px;
+width:170px;
+height:170px;
 margin:auto;
-margin-bottom:25px;
+margin-bottom:20px;
 border-radius:50%;
 background:#000;
 border:3px solid cyan;
-color:cyan;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:40px;
+font-size:38px;
 font-weight:bold;
+color:cyan;
 box-shadow:0 0 30px cyan;
 }
 
 h1{
 color:cyan;
-font-size:30px;
 margin-bottom:15px;
 }
 
 p{
 color:#ddd;
-margin-bottom:25px;
+margin-bottom:20px;
 }
 
 .item{
 background:#1a1a1a;
 padding:20px;
-border-radius:15px;
+border-radius:20px;
 margin-top:15px;
 box-shadow:0 0 10px rgba(0,255,255,.2);
 }
 
 .price{
-color:#00ffff;
+color:cyan;
 font-size:22px;
 margin:10px 0;
 }
@@ -81,12 +81,11 @@ button{
 background:cyan;
 color:black;
 border:none;
-padding:14px 30px;
+padding:14px 25px;
 border-radius:50px;
-font-size:17px;
+font-size:16px;
 font-weight:bold;
 cursor:pointer;
-margin-top:10px;
 transition:.3s;
 }
 
@@ -95,10 +94,28 @@ transform:scale(1.05);
 box-shadow:0 0 20px cyan;
 }
 
+.bottomMenu{
+position:fixed;
+bottom:0;
+left:0;
+width:100%;
+background:#111;
+display:flex;
+justify-content:space-around;
+padding:15px;
+border-top:1px solid cyan;
+}
+
+.bottomMenu button{
+background:none;
+color:cyan;
+font-size:15px;
+}
+
 @keyframes fadeIn{
 from{
 opacity:0;
-transform:translateY(30px);
+transform:translateY(20px);
 }
 to{
 opacity:1;
@@ -111,7 +128,7 @@ transform:translateY(0);
 
 <body>
 
-<!-- Home Page -->
+<!-- Home -->
 <div class="container" id="homePage">
 
 <div class="logo">
@@ -121,23 +138,35 @@ AiKipa
 <h1>Premium Gift Plan<br>NFT Stars Shop</h1>
 
 <p>
-လိုအပ်သော Premium Gift, NFT နှင့် Telegram Stars များကို ဝယ်ယူနိုင်ပါတယ်
+လိုအပ်သော Premium Gift, NFT နှင့် Telegram Stars များကို ဝယ်ယူနိုင်ပါတယ်။
 </p>
 
-<button onclick="openShop()">
+<button onclick="showPage('shopPage')">
 Start
 </button>
 
 </div>
 
-<!-- Shop Page -->
+<!-- Shop -->
 <div class="container" id="shopPage" style="display:none">
 
-<h1>🛒 Shop Page</h1>
+<h1>🛒 Shop</h1>
 
 <div class="item">
-<h2>⭐ Telegram Stars</h2>
-<div class="price">100 Stars - $1</div>
+<h2>⭐ 50 Stars</h2>
+<div class="price">$0.5</div>
+<button>Buy Now</button>
+</div>
+
+<div class="item">
+<h2>⭐ 100 Stars</h2>
+<div class="price">$1</div>
+<button>Buy Now</button>
+</div>
+
+<div class="item">
+<h2>⭐ 500 Stars</h2>
+<div class="price">$5</div>
 <button>Buy Now</button>
 </div>
 
@@ -153,22 +182,56 @@ Start
 <button>Buy Now</button>
 </div>
 
-<button onclick="goBack()">
-← Back
+</div>
+
+<!-- Profile -->
+<div class="container" id="profilePage" style="display:none">
+
+<div class="logo">
+AK
+</div>
+
+<h1>👤 Profile</h1>
+
+<div class="item">
+<h2>Username</h2>
+<p>@username</p>
+</div>
+
+<div class="item">
+<h2>Status</h2>
+<p>Premium Member</p>
+</div>
+
+</div>
+
+<!-- Bottom Menu -->
+<div class="bottomMenu">
+
+<button onclick="showPage('homePage')">
+🏠<br>Home
+</button>
+
+<button onclick="showPage('shopPage')">
+🛒<br>Shop
+</button>
+
+<button onclick="showPage('profilePage')">
+👤<br>Profile
 </button>
 
 </div>
 
 <script>
 
-function openShop(){
-document.getElementById("homePage").style.display="none";
-document.getElementById("shopPage").style.display="block";
-}
+function showPage(pageId){
 
-function goBack(){
+document.getElementById("homePage").style.display="none";
 document.getElementById("shopPage").style.display="none";
-document.getElementById("homePage").style.display="block";
+document.getElementById("profilePage").style.display="none";
+
+document.getElementById(pageId).style.display="block";
+
 }
 
 </script>
