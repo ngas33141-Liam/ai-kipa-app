@@ -7,27 +7,36 @@
     <link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
     <style>
         body {
-            /* ရိုးရိုးအရောင်အစား Gradient အရောင်ပြေးကို အသုံးပြုခြင်း */
             background: linear-gradient(135deg, #00cfd1, #005c97);
             color: white;
             font-family: 'Poppins', Arial, sans-serif;
             margin: 0;
-            height: 100vh; /* မျက်နှာပြင် အပြည့်ယူရန် */
+            height: 100vh;
             display: flex;
             justify-content: center;
             align-items: center;
             text-align: center;
         }
 
-        /* စာသားနဲ့ ခလုတ်တွေကို ဖန်သားပြင် (Glass) ပုံစံ ဘောက်စ်ထဲ ထည့်ခြင်း */
         .container {
             background: rgba(255, 255, 255, 0.1);
-            padding: 50px;
+            padding: 40px 50px;
             border-radius: 20px;
             box-shadow: 0 8px 32px rgba(0, 0, 0, 0.2);
             backdrop-filter: blur(10px);
             border: 1px solid rgba(255, 255, 255, 0.2);
-            animation: fadeIn 1s ease-in-out; /* ဝင်ဝင်ချင်း Animation */
+            animation: fadeIn 1s ease-in-out;
+        }
+
+        /* Logo အတွက် CSS အသစ်ထည့်ခြင်း */
+        .logo {
+            width: 100px;
+            height: 100px;
+            border-radius: 50%; /* ပုံကို စက်ဝိုင်းပုံစံဖြစ်အောင် လုပ်ခြင်း */
+            object-fit: cover;
+            margin-bottom: 15px;
+            box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+            border: 3px solid rgba(255, 255, 255, 0.5); /* ပုံဘေးမှာ အဖြူရောင်ဘောင်လေးထည့်ခြင်း */
         }
 
         h1 {
@@ -47,36 +56,30 @@
             color: #00cfd1;
             border: none;
             padding: 15px 40px;
-            border-radius: 50px; /* ဘေးဘောင်ကို လုံးဝိုင်းသွားအောင် လုပ်ခြင်း */
+            border-radius: 50px;
             font-size: 18px;
             font-weight: bold;
             cursor: pointer;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
-            transition: all 0.3s ease; /* အရောင်ပြောင်းလဲမှု ညင်သာစေရန် */
+            transition: all 0.3s ease;
         }
 
-        /* ခလုတ်ပေါ် Mouse တင်လိုက်သည့်အခါ (Hover Effect) */
         button:hover {
-            transform: translateY(-5px); /* အပေါ်ကို နည်းနည်း ကြွတက်သွားမည် */
+            transform: translateY(-5px);
             box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2);
             background: #f8f9fa;
         }
 
-        /* ဝင်ဝင်ချင်း အပေါ်ကို တက်လာသော Animation (Keyframes) */
         @keyframes fadeIn {
-            from {
-                opacity: 0;
-                transform: translateY(30px);
-            }
-            to {
-                opacity: 1;
-                transform: translateY(0);
-            }
+            from { opacity: 0; transform: translateY(30px); }
+            to { opacity: 1; transform: translateY(0); }
         }
     </style>
 </head>
 <body>
     <div class="container">
+        <img src="https://via.placeholder.com/150/ffffff/00cfd1?text=Logo" alt="AiKipa Logo" class="logo">
+        
         <h1>AiKipa Testing</h1>
         <p>Welcome to the enhanced AiKipa!</p>
         <button onclick="alert('Hello from AiKipa!')">
@@ -85,4 +88,3 @@
     </div>
 </body>
 </html>
-
