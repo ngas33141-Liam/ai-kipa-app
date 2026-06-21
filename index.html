@@ -26,10 +26,10 @@ text-align:center;
 }
 
 .logo{
-width:150px;
-height:150px;
+width:170px;
+height:170px;
 margin:auto;
-border-radius:50%;
+border-radius:70%;
 background:rgba(255,255,255,.05);
 backdrop-filter:blur(15px);
 border:2px solid cyan;
@@ -37,7 +37,7 @@ display:flex;
 flex-direction:column;
 justify-content:center;
 align-items:center;
-font-size:18px;
+font-size:15px;
 font-weight:bold;
 color:cyan;
 box-shadow:0 0 25px cyan;
@@ -52,7 +52,7 @@ to{box-shadow:0 0 40px cyan;}
 
 h1{
 color:cyan;
-font-size:22px;
+font-size:20px;
 }
 
 .grid{
@@ -83,7 +83,7 @@ transform:translateY(-5px);
 
 .price{
 color:cyan;
-font-size:16px;
+font-size:15px;
 margin:10px 0;
 }
 
@@ -95,7 +95,7 @@ border-radius:50px;
 background:linear-gradient(45deg,#00ffff,#00bfff);
 color:black;
 font-weight:bold;
-font-size:15px;
+font-size:13px;
 cursor:pointer;
 }
 
@@ -126,23 +126,23 @@ AiKipa<br>Mini Bot
 <!-- SHOP -->
 <div class="container" id="shopPage" style="display:none">
 
-<h1>AiKipa Mini Shop👛</h1>
+<h1>AiKipa-Mini-Shop👛</h1>
 
 <!-- MENU -->
 <div id="menu" class="grid">
 
 <div class="card">
-⭐
+Stard🌟
 <button onclick="showCategory('stars')">Stars</button>
 </div>
 
 <div class="card">
-🎁
+Premium🎁
 <button onclick="showCategory('premium')">Premium</button>
 </div>
 
 <div class="card">
-🛸
+Nft🛸
 <button onclick="showCategory('nft')">NFT</button>
 </div>
 
@@ -151,15 +151,22 @@ AiKipa<br>Mini Bot
 <!-- STARS -->
 <div id="stars" style="display:none">
 
-<h1>⭐ Stars</h1>
+<h1>Stars🌟</h1>
 
 <div class="grid">
 
-<div class="card">50 Stars<div class="price">3500 Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
-<div class="card">100 Stars<div class="price">7000 Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
-<div class="card">150 Stars<div class="price">10400 Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
-<div class="card">200 Stars<div class="price">13800 Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
-
+<div class="card">Stars50<div class="price">3500Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">Stars100<div class="price">7000Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">Stars150<div class="price">10400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">Stars200<div class="price">13800Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
+<div class="card">Stars250<div class="price">17400Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">Stars300<div class="price">20800Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">Stars350<div class="price">24400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">Stars400<div class="price">27800Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
+<div class="card">Stars450<div class="price">31400Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">Stars500<div class="price">34700Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">Stars1000<div class="price">69500Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">Stars1500<div class="price">104500Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
 </div>
 
 <button class="back" onclick="backMenu()">⬅ Back</button>
@@ -168,7 +175,7 @@ AiKipa<br>Mini Bot
 <!-- PREMIUM -->
 <div id="premium" style="display:none">
 
-<h1>👑 Premium</h1>
+<h1>Premium<br>(GiftPlan)🎁</h1>
 
 <div class="grid">
 
@@ -184,10 +191,10 @@ AiKipa<br>Mini Bot
 <!-- NFT -->
 <div id="nft" style="display:none">
 
-<h1>🛸 NFT</h1>
+<h1>Nft🛸</h1>
 
 <div class="card">
-NFT Buy/Sell
+NFT(Buy/Sell)
 <div class="price">Click</div>
 <button onclick="buy('NFT')">Buy</button>
 </div>
@@ -233,7 +240,7 @@ nft.style.display="none";
 }
 
 function buy(product){
-window.open("https://t.me/AiKipa?text="+encodeURIComponent(product+" ဝယ်ချင်ပါတယ်"));
+window.open("https://t.me/AiKipa?text="+encodeURIComponent(product+" ဝယ်ယူချင်ပါတယ်"));
 }
 
 </script>
