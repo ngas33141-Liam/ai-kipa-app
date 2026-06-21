@@ -1,78 +1,80 @@
-<!DOCTYPE html>
-<html>
-<head>
-<meta charset="UTF-8">
-<meta name="viewport" content="width=device-width, initial-scale=1.0">
-<title>AiKipa Shop</title>
-
-<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@300;500;700&display=swap" rel="stylesheet">
-
 <style>
 
-*{
-margin:0;
-padding:0;
-box-sizing:border-box;
-font-family:'Poppins',sans-serif;
-}
-
 body{
+margin:0;
 background:#000;
+font-family:Poppins,sans-serif;
 color:white;
 display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
-padding:20px;
 }
 
 .container{
-width:100%;
+width:90%;
 max-width:380px;
-background:#111;
-padding:25px;
-border-radius:25px;
-box-shadow:0 0 20px rgba(0,255,255,.3);
+padding:20px;
 text-align:center;
 }
 
 .logo{
-width:150px;
-height:150px;
+width:140px;
+height:140px;
 margin:auto;
-margin-bottom:20px;
 border-radius:50%;
-border:3px solid cyan;
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border:2px solid cyan;
 display:flex;
 justify-content:center;
 align-items:center;
 font-size:35px;
 font-weight:bold;
 color:cyan;
-box-shadow:0 0 30px cyan;
+box-shadow:0 0 25px cyan;
+margin-bottom:25px;
+animation:glow 2s infinite alternate;
+}
+
+@keyframes glow{
+from{
+box-shadow:0 0 20px cyan;
+}
+to{
+box-shadow:0 0 40px cyan;
+}
 }
 
 h1{
 color:cyan;
-margin-bottom:20px;
+font-size:28px;
 }
 
 .grid{
 display:grid;
 grid-template-columns:1fr 1fr;
 gap:15px;
+margin-top:20px;
 }
 
-.item{
-background:#1a1a1a;
-padding:15px;
-border-radius:20px;
-box-shadow:0 0 10px rgba(0,255,255,.2);
+.card{
+background:rgba(255,255,255,.05);
+backdrop-filter:blur(15px);
+border:1px solid rgba(0,255,255,.3);
+border-radius:25px;
+padding:18px;
+box-shadow:0 0 15px rgba(0,255,255,.15);
+transition:.3s;
+}
+
+.card:hover{
+transform:translateY(-5px);
 }
 
 .price{
 color:cyan;
-font-size:18px;
+font-size:20px;
 margin:10px 0;
 }
 
@@ -81,23 +83,22 @@ width:100%;
 padding:12px;
 border:none;
 border-radius:50px;
-background:cyan;
+background:linear-gradient(45deg,#00ffff,#00bfff);
 color:black;
 font-weight:bold;
-cursor:pointer;
+font-size:15px;
 }
 
-.backBtn{
+.back{
 margin-top:20px;
-background:#333;
+background:#222;
 color:white;
 }
 
 </style>
-</head>
-<body>
 
-<!-- Home -->
+
+<!-- HOME -->
 <div class="container" id="homePage">
 
 <div class="logo">
@@ -106,34 +107,43 @@ AiKipa
 
 <h1>Premium Gift Plan<br>NFT Stars Shop</h1>
 
+<br>
+
 <button onclick="showPage('shopPage')">
 Start
 </button>
 
 </div>
 
-<!-- Shop -->
+
+<!-- SHOP -->
 <div class="container" id="shopPage" style="display:none">
 
 <h1>🛒 Shop</h1>
 
 <div id="menu" class="grid">
 
-<div class="item">
+<div class="card">
+⭐
+<br><br>
 <button onclick="showCategory('stars')">
-⭐ Stars
+Stars
 </button>
 </div>
 
-<div class="item">
+<div class="card">
+👑
+<br><br>
 <button onclick="showCategory('premium')">
-👑 Premium
+Premium
 </button>
 </div>
 
-<div class="item">
+<div class="card">
+🖼
+<br><br>
 <button onclick="showCategory('nft')">
-🖼 NFT
+NFT
 </button>
 </div>
 
@@ -147,33 +157,41 @@ Start
 
 <div class="grid">
 
-<div class="item">
-<h3>50 Stars</h3>
+<div class="card">
+50 Stars
 <div class="price">3500 Ks</div>
-<button onclick="buy('50 Stars')">Buy Now</button>
+<button onclick="buy('50 Stars')">
+Buy
+</button>
 </div>
 
-<div class="item">
-<h3>100 Stars</h3>
+<div class="card">
+100 Stars
 <div class="price">7000 Ks</div>
-<button onclick="buy('100 Stars')">Buy Now</button>
+<button onclick="buy('100 Stars')">
+Buy
+</button>
 </div>
 
-<div class="item">
-<h3>500 Stars</h3>
+<div class="card">
+500 Stars
 <div class="price">34500 Ks</div>
-<button onclick="buy('500 Stars')">Buy Now</button>
+<button onclick="buy('500 Stars')">
+Buy
+</button>
 </div>
 
-<div class="item">
-<h3>1000 Stars</h3>
+<div class="card">
+1000 Stars
 <div class="price">69000 Ks</div>
-<button onclick="buy('1000 Stars')">Buy Now</button>
+<button onclick="buy('1000 Stars')">
+Buy
+</button>
 </div>
 
 </div>
 
-<button class="backBtn" onclick="backMenu()">
+<button class="back" onclick="backMenu()">
 ⬅ Back
 </button>
 
@@ -187,33 +205,33 @@ Start
 
 <div class="grid">
 
-<div class="item">
-<h3>3 Months</h3>
+<div class="card">
+3 Months
 <div class="price">55000 Ks</div>
 <button onclick="buy('Premium 3 Months')">
-Buy Now
+Buy
 </button>
 </div>
 
-<div class="item">
-<h3>6 Months</h3>
+<div class="card">
+6 Months
 <div class="price">73600 Ks</div>
 <button onclick="buy('Premium 6 Months')">
-Buy Now
+Buy
 </button>
 </div>
 
-<div class="item">
-<h3>12 Months</h3>
+<div class="card">
+12 Months
 <div class="price">134000 Ks</div>
 <button onclick="buy('Premium 12 Months')">
-Buy Now
+Buy
 </button>
 </div>
 
 </div>
 
-<button class="backBtn" onclick="backMenu()">
+<button class="back" onclick="backMenu()">
 ⬅ Back
 </button>
 
@@ -225,40 +243,35 @@ Buy Now
 
 <h1>🖼 NFT</h1>
 
-<div class="grid">
-
-<div class="item">
-<h3>NFT Service</h3>
+<div class="card">
+NFT Service
 <div class="price">Contact Admin</div>
 <button onclick="buy('NFT')">
-Buy Now
+Buy
 </button>
 </div>
 
-</div>
-
-<button class="backBtn" onclick="backMenu()">
+<button class="back" onclick="backMenu()">
 ⬅ Back
 </button>
 
 </div>
 
-</div>
 
 <script>
 
 function showPage(page){
-document.getElementById("homePage").style.display="none";
-document.getElementById(page).style.display="block";
+homePage.style.display="none";
+shopPage.style.display="block";
 }
 
 function showCategory(type){
 
-document.getElementById("menu").style.display="none";
+menu.style.display="none";
 
-document.getElementById("stars").style.display="none";
-document.getElementById("premium").style.display="none";
-document.getElementById("nft").style.display="none";
+stars.style.display="none";
+premium.style.display="none";
+nft.style.display="none";
 
 document.getElementById(type).style.display="block";
 
@@ -266,11 +279,11 @@ document.getElementById(type).style.display="block";
 
 function backMenu(){
 
-document.getElementById("menu").style.display="grid";
+menu.style.display="grid";
 
-document.getElementById("stars").style.display="none";
-document.getElementById("premium").style.display="none";
-document.getElementById("nft").style.display="none";
+stars.style.display="none";
+premium.style.display="none";
+nft.style.display="none";
 
 }
 
@@ -284,6 +297,3 @@ encodeURIComponent(product+" ဝယ်ယူချင်ပါတယ်")
 }
 
 </script>
-
-</body>
-</html>
