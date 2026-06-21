@@ -1,10 +1,17 @@
+<!DOCTYPE html>
+<html>
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>AiKipa Mini Shop</title>
+
 <style>
 
 body{
 margin:0;
 background:#000;
 font-family:Poppins,sans-serif;
-color:Yellow;
+color:yellow;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -27,9 +34,10 @@ background:rgba(255,255,255,.05);
 backdrop-filter:blur(15px);
 border:2px solid cyan;
 display:flex;
+flex-direction:column;
 justify-content:center;
 align-items:center;
-font-size:30px;
+font-size:18px;
 font-weight:bold;
 color:cyan;
 box-shadow:0 0 25px cyan;
@@ -38,17 +46,13 @@ animation:glow 3s infinite alternate;
 }
 
 @keyframes glow{
-from{
-box-shadow:0 0 20px cyan;
-}
-to{
-box-shadow:0 0 40px cyan;
-}
+from{box-shadow:0 0 20px cyan;}
+to{box-shadow:0 0 40px cyan;}
 }
 
 h1{
 color:cyan;
-font-size:26px;
+font-size:22px;
 }
 
 .grid{
@@ -66,6 +70,11 @@ border-radius:25px;
 padding:18px;
 box-shadow:0 0 15px rgba(0,255,255,.15);
 transition:.3s;
+
+display:flex;
+flex-direction:column;
+justify-content:center;
+align-items:center;
 }
 
 .card:hover{
@@ -74,7 +83,7 @@ transform:translateY(-5px);
 
 .price{
 color:cyan;
-font-size:18px;
+font-size:16px;
 margin:10px 0;
 }
 
@@ -87,269 +96,147 @@ background:linear-gradient(45deg,#00ffff,#00bfff);
 color:black;
 font-weight:bold;
 font-size:15px;
+cursor:pointer;
 }
 
 .back{
 margin-top:20px;
-background:#222;
-color: Yellow;
+background:linear-gradient(45deg,#00ffff,#00bfff);
+color:black;
 }
 
 </style>
+</head>
 
+<body>
 
 <!-- HOME -->
 <div class="container" id="homePage">
 
 <div class="logo">
-AiKipa<br>MiNi-Bot 
+AiKipa<br>Mini Bot
 </div>
 
-<h1>Premium GiftPlan<br>NFT&Stars<Br>လိုချင်တာရ</h1>
+<h1>Premium Gift Plan<br>NFT & Stars</h1>
 
-<br>
-
-<button onclick="showPage('shopPage')">
-Start
-</button>
+<button onclick="showPage()">Start</button>
 
 </div>
-
 
 <!-- SHOP -->
 <div class="container" id="shopPage" style="display:none">
 
-<h1>Aikipa Mini Shop👛</h1>
+<h1>AiKipa Mini Shop👛</h1>
 
+<!-- MENU -->
 <div id="menu" class="grid">
 
 <div class="card">
 ⭐
-<br><br>
-<button onclick="showCategory('stars')">
-Stars
-</button>
+<button onclick="showCategory('stars')">Stars</button>
 </div>
 
 <div class="card">
 🎁
-<br><br>
-<button onclick="showCategory('premium')">
-Premium
-</button>
+<button onclick="showCategory('premium')">Premium</button>
 </div>
 
 <div class="card">
 🛸
-<br><br>
-<button onclick="showCategory('nft')">
-NFT
-</button>
+<button onclick="showCategory('nft')">NFT</button>
 </div>
 
 </div>
 
-
-<!-- Stars -->
-<div id="stars" style="display:flex">
+<!-- STARS -->
+<div id="stars" style="display:none">
 
 <h1>⭐ Stars</h1>
 
 <div class="grid">
 
-<div class="card">
-50 Stars
-<div class="price">3500 Ks</div>
-<button onclick="buy('50 Stars')">
-Buy
-</button>
-</div>
-
-  <div class="card">
- Stars 100
-<div class="price">7000Ks</div>
-<button onclick="buy('Stars100')">
-Buy
-</button>
-  </div>
-
-  <div class="card">
-Stars 150
-<div class="price">10400Ks</div>
-<button onclick="buy('Stars150')">
-Buy
-</button>
-  </div>
-
-  <div class="card">
-Stars 200
-<div class="price">13800Ks</div>
-<button onclick="buy('Stars200')">
-Buy
-</button>
-  </div>
-
-  <div class="card">
-Stars 250
-<div class="price">17400Ks</div>
-<button onclick="buy('Stars250')">
-Buy
-</button>
-  </div>
-
-  <div class="card">
-Stars 300
-<div class="price">20800Ks</div>
-<button onclick="buy('Stars300')">
-Buy
-</button>
-  </div>
-
-<div class="card">
-Stars 350
-<div class="price">24400Ks</div>
-<button onclick="buy('Stars350')">
-Buy
-</button>
-</div>
-
-  <div class="card">
-Stars 400
-<div class="price">27800Ks</div>
-<button onclick="buy('Stars400')">
-Buy
-</button>
-  </div>
-
-  <div class="card">
-Stars 450
-<div class="price">31400Ks</div>
-<button onclick="buy('Stars450')">
-Buy
-</button>
-  </div>
-
-<div class="card">
-500 Stars
-<div class="price">34500 Ks</div>
-<button onclick="buy('500 Stars')">
-Buy
-</button>
-</div>
-
-<div class="card">
-1000 Stars
-<div class="price">69500Ks</div>
-<button onclick="buy('Stars1000')">
-Buy
-</button>
-</div>
+<div class="card">50 Stars<div class="price">3500 Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">100 Stars<div class="price">7000 Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">150 Stars<div class="price">10400 Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">200 Stars<div class="price">13800 Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
 
 </div>
 
-<button class="back" onclick="backMenu()">
-⬅ Back
-</button>
-
+<button class="back" onclick="backMenu()">⬅ Back</button>
 </div>
 
-
-<!-- Premium -->
-<div id="premium" style="display:flex">
+<!-- PREMIUM -->
+<div id="premium" style="display:none">
 
 <h1>👑 Premium</h1>
 
 <div class="grid">
 
-<div class="card">
-3 Months
-<div class="price">55000 Ks</div>
-<button onclick="buy('Premium 3 Months')">
-Buy
-</button>
-</div>
-
-<div class="card">
-6 Months
-<div class="price">73600 Ks</div>
-<button onclick="buy('Premium 6 Months')">
-Buy
-</button>
-</div>
-
-<div class="card">
-12 Months
-<div class="price">134000 Ks</div>
-<button onclick="buy('Premium 12 Months')">
-Buy
-</button>
-</div>
+<div class="card">3 Months<div class="price">55000 Ks</div><button onclick="buy('Premium 3 Months')">Buy</button></div>
+<div class="card">6 Months<div class="price">73600 Ks</div><button onclick="buy('Premium 6 Months')">Buy</button></div>
+<div class="card">12 Months<div class="price">134000 Ks</div><button onclick="buy('Premium 12 Months')">Buy</button></div>
 
 </div>
 
-<button class="back" onclick="backMenu()">
-⬅ Back
-</button>
-
+<button class="back" onclick="backMenu()">⬅ Back</button>
 </div>
-
 
 <!-- NFT -->
-<div id="nft" style="display:flex">
+<div id="nft" style="display:none">
 
 <h1>🛸 NFT</h1>
 
 <div class="card">
-NFT<br>Buy/Sell
+NFT Buy/Sell
 <div class="price">Click</div>
-<button onclick="buy('NFT')">
-Buy
-</button>
+<button onclick="buy('NFT')">Buy</button>
 </div>
 
-<button class="back" onclick="backMenu()">
-⬅ Back
-</button>
-
+<button class="back" onclick="backMenu()">⬅ Back</button>
 </div>
 
+</div>
 
 <script>
 
-function showPage(page){
-homePage.style.display="flex";
+const homePage = document.getElementById("homePage");
+const shopPage = document.getElementById("shopPage");
+const menu = document.getElementById("menu");
+const stars = document.getElementById("stars");
+const premium = document.getElementById("premium");
+const nft = document.getElementById("nft");
+
+function showPage(){
+homePage.style.display="none";
 shopPage.style.display="block";
+menu.style.display="grid";
 }
 
 function showCategory(type){
 
-menu.style.display="flex";
+menu.style.display="none";
 
 stars.style.display="none";
 premium.style.display="none";
-nft.style.display="flex";
+nft.style.display="none";
 
 document.getElementById(type).style.display="block";
-
 }
 
 function backMenu(){
 
 menu.style.display="grid";
 
-stars.style.display="flex";
-premium.style.display="flex";
-nft.style.display="flex";
-
+stars.style.display="none";
+premium.style.display="none";
+nft.style.display="none";
 }
 
 function buy(product){
-
-window.open(
-"https://t.me/AiKipa?text="+
-encodeURIComponent(product+"ဝယ်ပါမယ်")
-);
-
+window.open("https://t.me/AiKipa?text="+encodeURIComponent(product+" ဝယ်ချင်ပါတယ်"));
 }
 
 </script>
+
+</body>
+  </html>
