@@ -105,6 +105,27 @@ background:linear-gradient(45deg,#00ffff,#00bfff);
 color:black;
 }
 
+/* ADMIN */
+#adminPage{
+display:none;
+margin-top:20px;
+}
+
+.logBox{
+text-align:left;
+background:#111;
+padding:10px;
+border-radius:10px;
+max-height:250px;
+overflow:auto;
+}
+
+.smallBtn{
+margin-top:10px;
+background:#222;
+color:cyan;
+}
+
 </style>
 </head>
 
@@ -120,6 +141,7 @@ AiKipa<br>Mini Bot
 <h1>Premium Gift Plan<br>NFT & Stars</h1>
 
 <button onclick="showPage()">Start</button>
+<button onclick="openAdmin()" style="margin-top:10px;background:#333;color:cyan;">Admin</button>
 
 </div>
 
@@ -128,11 +150,10 @@ AiKipa<br>Mini Bot
 
 <h1>AiKipa-Mini-Shop👛</h1>
 
-<!-- MENU -->
 <div id="menu" class="grid">
 
 <div class="card">
-Stard🌟
+Stars🌟
 <button onclick="showCategory('stars')">Stars</button>
 </div>
 
@@ -142,7 +163,7 @@ Premium🎁
 </div>
 
 <div class="card">
-Nft🛸
+NFT🛸
 <button onclick="showCategory('nft')">NFT</button>
 </div>
 
@@ -150,23 +171,22 @@ Nft🛸
 
 <!-- STARS -->
 <div id="stars" style="display:none">
-
 <h1>Stars🌟</h1>
-
 <div class="grid">
 
-<div class="card">Stars50<div class="price">3500Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
-<div class="card">Stars100<div class="price">7000Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
-<div class="card">Stars150<div class="price">10400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
-<div class="card">Stars200<div class="price">13800Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
-<div class="card">Stars250<div class="price">17400Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
-<div class="card">Stars300<div class="price">20800Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
-<div class="card">Stars350<div class="price">24400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
-<div class="card">Stars400<div class="price">27800Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
-<div class="card">Stars450<div class="price">31400Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
-<div class="card">Stars500<div class="price">34700Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
-<div class="card">Stars1000<div class="price">69500Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
-<div class="card">Stars1500<div class="price">104500Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
+<div class="card">50 Stars<div class="price">3500Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">100 Stars<div class="price">7000Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">150 Stars<div class="price">10400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">200 Stars<div class="price">13800Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
+<div class="card">250 Stars<div class="price">17400ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">300 Stars<div class="price">20800Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">350 Stars<div class="price">24400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">400 Stars<div class="price">27800Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
+<div class="card">450 Stars<div class="price">31400Ks</div><button onclick="buy('50 Stars')">Buy</button></div>
+<div class="card">500 Stars<div class="price">34700Ks</div><button onclick="buy('100 Stars')">Buy</button></div>
+<div class="card">1000 Stars<div class="price">10400Ks</div><button onclick="buy('150 Stars')">Buy</button></div>
+<div class="card">1500 Stars<div class="price">104500Ks</div><button onclick="buy('200 Stars')">Buy</button></div>
+  
 </div>
 
 <button class="back" onclick="backMenu()">⬅ Back</button>
@@ -174,8 +194,7 @@ Nft🛸
 
 <!-- PREMIUM -->
 <div id="premium" style="display:none">
-
-<h1>Premium<br>(GiftPlan)🎁</h1>
+<h1>Premium🎁</h1>
 
 <div class="grid">
 
@@ -191,15 +210,28 @@ Nft🛸
 <!-- NFT -->
 <div id="nft" style="display:none">
 
-<h1>Nft🛸</h1>
+<h1>NFT🛸</h1>
 
 <div class="card">
-NFT(Buy/Sell)
+NFT Buy/Sell
 <div class="price">Click</div>
 <button onclick="buy('NFT')">Buy</button>
 </div>
 
 <button class="back" onclick="backMenu()">⬅ Back</button>
+</div>
+
+<!-- ADMIN PANEL -->
+<div id="adminPage" class="container">
+
+<h1>📦 Orders Log</h1>
+
+<div class="logBox" id="logBox"></div>
+
+<button class="smallBtn" onclick="loadLogs()">Refresh</button>
+<button class="smallBtn" onclick="clearLogs()">Clear</button>
+<button class="back" onclick="goHome()">Back</button>
+
 </div>
 
 </div>
@@ -212,11 +244,13 @@ const menu = document.getElementById("menu");
 const stars = document.getElementById("stars");
 const premium = document.getElementById("premium");
 const nft = document.getElementById("nft");
+const adminPage = document.getElementById("adminPage");
 
 function showPage(){
 homePage.style.display="none";
 shopPage.style.display="block";
 menu.style.display="grid";
+adminPage.style.display="none";
 }
 
 function showCategory(type){
@@ -231,19 +265,68 @@ document.getElementById(type).style.display="block";
 }
 
 function backMenu(){
-
 menu.style.display="grid";
-
 stars.style.display="none";
 premium.style.display="none";
 nft.style.display="none";
 }
 
+/* BUY + SAVE */
 function buy(product){
+
+let logs = JSON.parse(localStorage.getItem("orders")) || [];
+
+logs.push({
+product:product,
+time:new Date().toLocaleString()
+});
+
+localStorage.setItem("orders", JSON.stringify(logs));
+
 window.open("https://t.me/AiKipa?text="+encodeURIComponent(product+" ဝယ်ယူချင်ပါတယ်"));
+}
+
+/* ADMIN */
+function openAdmin(){
+homePage.style.display="none";
+shopPage.style.display="none";
+adminPage.style.display="block";
+loadLogs();
+}
+
+function loadLogs(){
+
+let logs = JSON.parse(localStorage.getItem("orders")) || [];
+let box = document.getElementById("logBox");
+
+box.innerHTML="";
+
+logs.forEach((l,i)=>{
+box.innerHTML += `
+<div class="card">
+#${i+1}<br>
+${l.product}<br>
+${l.time}
+</div>
+`;
+});
+
+if(logs.length===0){
+box.innerHTML="No orders yet";
+}
+}
+
+function clearLogs(){
+localStorage.removeItem("orders");
+loadLogs();
+}
+
+function goHome(){
+adminPage.style.display="none";
+homePage.style.display="flex";
 }
 
 </script>
 
 </body>
-  </html>
+</html>
