@@ -23,7 +23,6 @@ display:flex;
 justify-content:center;
 align-items:center;
 min-height:100vh;
-text-align:center;
 padding-bottom:90px;
 }
 
@@ -31,26 +30,25 @@ padding-bottom:90px;
 width:350px;
 background:#111;
 border-radius:25px;
-padding:30px;
-box-shadow:0 0 25px rgba(0,255,255,.3);
-animation:fadeIn 1s;
+padding:25px;
+box-shadow:0 0 20px rgba(0,255,255,.3);
+text-align:center;
 }
 
 .logo{
-width:170px;
-height:170px;
+width:160px;
+height:160px;
 margin:auto;
-margin-bottom:20px;
 border-radius:50%;
-background:#000;
 border:3px solid cyan;
 display:flex;
 justify-content:center;
 align-items:center;
-font-size:38px;
+font-size:35px;
 font-weight:bold;
 color:cyan;
 box-shadow:0 0 30px cyan;
+margin-bottom:20px;
 }
 
 h1{
@@ -58,14 +56,9 @@ color:cyan;
 margin-bottom:15px;
 }
 
-p{
-color:#ddd;
-margin-bottom:20px;
-}
-
 .item{
 background:#1a1a1a;
-padding:20px;
+padding:18px;
 border-radius:20px;
 margin-top:15px;
 box-shadow:0 0 10px rgba(0,255,255,.2);
@@ -78,57 +71,34 @@ margin:10px 0;
 }
 
 button{
+width:100%;
+padding:15px;
+border:none;
+border-radius:50px;
 background:cyan;
 color:black;
-border:none;
-padding:14px 25px;
-border-radius:50px;
 font-size:16px;
 font-weight:bold;
 cursor:pointer;
+margin-top:10px;
 transition:.3s;
 }
 
 button:hover{
-transform:scale(1.05);
+transform:scale(1.03);
 box-shadow:0 0 20px cyan;
 }
 
-.bottomMenu{
-position:fixed;
-bottom:0;
-left:0;
-width:100%;
-background:#111;
-display:flex;
-justify-content:space-around;
-padding:15px;
-border-top:1px solid cyan;
-}
-
-.bottomMenu button{
-background:none;
-color:cyan;
-font-size:15px;
-}
-
-@keyframes fadeIn{
-from{
-opacity:0;
-transform:translateY(20px);
-}
-to{
-opacity:1;
-transform:translateY(0);
-}
+.backBtn{
+background:#333;
+color:white;
 }
 
 </style>
 </head>
-
 <body>
 
-<!-- Home -->
+<!-- HOME PAGE -->
 <div class="container" id="homePage">
 
 <div class="logo">
@@ -137,9 +107,7 @@ AiKipa
 
 <h1>Premium Gift Plan<br>NFT Stars Shop</h1>
 
-<p>
-လိုအပ်သော Premium Gift, NFT နှင့် Telegram Stars များကို ဝယ်ယူနိုင်ပါတယ်။
-</p>
+<br>
 
 <button onclick="showPage('shopPage')">
 Start
@@ -147,108 +115,157 @@ Start
 
 </div>
 
-<!-- Shop -->
+
+
+<!-- SHOP PAGE -->
 <div class="container" id="shopPage" style="display:none">
 
 <h1>🛒 Shop</h1>
 
-<div class="item">
-<h2> 50 Stars</h2>
-<div class="price">3500Ks</div>
-<button>Buy Now</button>
-</div>
+<div id="menu">
 
 <div class="item">
-<h2> 100 Stars</h2>
-<div class="price">7000Ks</div>
-<button>Buy Now</button>
-</div>
-
-<div class="item">
-<h2> 500 Stars</h2>
-<div class="price">34500Ks</div>
-<button>Buy Now</button>
-</div>
-
-  <div class="item">
-<h2> 1000 Stars</h2>
-<div class="price">69000Ks</div>
-<button>Buy Now</button>
-  </div>
-
-<div class="item">
-<h2> Premium Gift Plan 3 Months</h2>
-<div class="price">55000Ks</div>
-<button>Buy Now</button>
-</div>
-
-  <div class="item">
-<h2> Premium Gift Plan 6 Months</h2>
-<div class="price">73600ks</div>
-<button>Buy Now</button>
-  </div>
-
-  <div class="item">
-<h2> Premium Gift Plan 12 Months</h2>
-<div class="price">134000ks</div>
-<button>Buy Now</button>
-  </div>
-
-<div class="item">
-<h2>NFTဝယ်ယူလိုပါက</h2>
-<div class="price"></div>
-<button> @AiKipa </button>
-</div>
-
-</div>
-
-<!-- Profile -->
-<div class="container" id="profilePage" style="display:none">
-
-<div class="logo">
-AK
-</div>
-
-<h1>👤 Profile</h1>
-
-<div class="item">
-<h2>Username</h2>
-<p>@username</p>
-</div>
-
-<div class="item">
-<h2>Status</h2>
-<p>Premium Member</p>
-</div>
-
-</div>
-
-<!-- Bottom Menu -->
-<div class="bottomMenu">
-
-<button onclick="showPage('homePage')">
-🏠<br>Home
+<button onclick="showCategory('stars')">
+⭐ Stars
 </button>
+</div>
 
-<button onclick="showPage('shopPage')">
-🛒<br>Shop
+<div class="item">
+<button onclick="showCategory('premium')">
+👑 Premium
 </button>
+</div>
 
-<button onclick="showPage('profilePage')">
-👤<br>Profile
+<div class="item">
+<button onclick="showCategory('nft')">
+🖼 NFT
+</button>
+</div>
+
+</div>
+
+
+<!-- Stars -->
+<div id="stars" style="display:none">
+
+<h1>⭐ Stars</h1>
+
+<div class="item">
+<h2>50 Stars</h2>
+<div class="price">3500 Ks</div>
+<button onclick="buy('50 Stars')">Buy Now</button>
+</div>
+
+<div class="item">
+<h2>100 Stars</h2>
+<div class="price">7000 Ks</div>
+<button onclick="buy('100 Stars')">Buy Now</button>
+</div>
+
+<div class="item">
+<h2>500 Stars</h2>
+<div class="price">34500 Ks</div>
+<button onclick="buy('500 Stars')">Buy Now</button>
+</div>
+
+<div class="item">
+<h2>1000 Stars</h2>
+<div class="price">69000 Ks</div>
+<button onclick="buy('1000 Stars')">Buy Now</button>
+</div>
+
+<button class="backBtn" onclick="backMenu()">
+⬅ Back
 </button>
 
 </div>
+
+
+<!-- Premium -->
+<div id="premium" style="display:none">
+
+<h1>👑 Premium</h1>
+
+<div class="item">
+<h2>3 Months</h2>
+<div class="price">55000 Ks</div>
+<button onclick="buy('Premium 3 Months')">Buy Now</button>
+</div>
+
+<div class="item">
+<h2>6 Months</h2>
+<div class="price">73600 Ks</div>
+<button onclick="buy('Premium 6 Months')">Buy Now</button>
+</div>
+
+<div class="item">
+<h2>12 Months</h2>
+<div class="price">134000 Ks</div>
+<button onclick="buy('Premium 12 Months')">Buy Now</button>
+</div>
+
+<button class="backBtn" onclick="backMenu()">
+⬅ Back
+</button>
+
+</div>
+
+
+<!-- NFT -->
+<div id="nft" style="display:none">
+
+<h1>🖼 NFT</h1>
+
+<div class="item">
+<h2>NFT Service</h2>
+<div class="price">Contact Admin</div>
+<button onclick="buy('NFT')">Buy Now</button>
+</div>
+
+<button class="backBtn" onclick="backMenu()">
+⬅ Back
+</button>
+
+</div>
+
+</div>
+
 
 <script>
 
 function showPage(pageId){
-
 document.getElementById("homePage").style.display="none";
-document.getElementById("shopPage").style.display="none";
-document.getElementById("profilePage").style.display="none";
-
 document.getElementById(pageId).style.display="block";
+}
+
+function showCategory(type){
+
+document.getElementById("menu").style.display="none";
+
+document.getElementById("stars").style.display="none";
+document.getElementById("premium").style.display="none";
+document.getElementById("nft").style.display="none";
+
+document.getElementById(type).style.display="block";
+
+}
+
+function backMenu(){
+
+document.getElementById("menu").style.display="block";
+
+document.getElementById("stars").style.display="none";
+document.getElementById("premium").style.display="none";
+document.getElementById("nft").style.display="none";
+
+}
+
+function buy(product){
+
+window.open(
+"https://t.me/AiKipa?text=" +
+encodeURIComponent(product + " ဝယ်ယူချင်ပါတယ်")
+);
 
 }
 
