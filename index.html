@@ -4,7 +4,7 @@ body{
 margin:0;
 background:#000;
 font-family:Poppins,sans-serif;
-color:Grey;
+color:Yellow;
 display:flex;
 justify-content:center;
 align-items:center;
@@ -19,8 +19,8 @@ text-align:center;
 }
 
 .logo{
-width:140px;
-height:140px;
+width:150px;
+height:150px;
 margin:auto;
 border-radius:50%;
 background:rgba(255,255,255,.05);
@@ -92,7 +92,7 @@ font-size:15px;
 .back{
 margin-top:20px;
 background:#222;
-color:Grey;
+color: Yellow;
 }
 
 </style>
@@ -102,7 +102,7 @@ color:Grey;
 <div class="container" id="homePage">
 
 <div class="logo">
-AiKipa<br>MiniShop
+AiKipa<br>MiNi-Bot 
 </div>
 
 <h1>Premium GiftPlan<br>NFT&Stars<Br>လိုတာရ</h1>
@@ -151,7 +151,7 @@ NFT
 
 
 <!-- Stars -->
-<div id="stars" style="display:none">
+<div id="stars" style="display:flex">
 
 <h1>⭐ Stars</h1>
 
@@ -165,13 +165,69 @@ Buy
 </button>
 </div>
 
+  <div class="card">
+ Stars 100
+<div class="price">7000Ks</div>
+<button onclick="buy('Stars100')">
+Buy
+</button>
+  </div>
+
+  <div class="card">
+Stars 150
+<div class="price">10400Ks</div>
+<button onclick="buy('Stars150')">
+Buy
+</button>
+  </div>
+
+  <div class="card">
+Stars 200
+<div class="price">13800Ks</div>
+<button onclick="buy('Stars200')">
+Buy
+</button>
+  </div>
+
+  <div class="card">
+Stars 250
+<div class="price">17400Ks</div>
+<button onclick="buy('Stars250')">
+Buy
+</button>
+  </div>
+
+  <div class="card">
+Stars 300
+<div class="price">20800Ks</div>
+<button onclick="buy('Stars300')">
+Buy
+</button>
+  </div>
+
 <div class="card">
-100 Stars
-<div class="price">7000 Ks</div>
-<button onclick="buy('100 Stars')">
+Stars 350
+<div class="price">24400Ks</div>
+<button onclick="buy('Stars350')">
 Buy
 </button>
 </div>
+
+  <div class="card">
+Stars 400
+<div class="price">27800Ks</div>
+<button onclick="buy('Stars400')">
+Buy
+</button>
+  </div>
+
+  <div class="card">
+Stars 450
+<div class="price">31400Ks</div>
+<button onclick="buy('Stars450')">
+Buy
+</button>
+  </div>
 
 <div class="card">
 500 Stars
@@ -183,8 +239,8 @@ Buy
 
 <div class="card">
 1000 Stars
-<div class="price">69000 Ks</div>
-<button onclick="buy('1000 Stars')">
+<div class="price">69500Ks</div>
+<button onclick="buy('Stars1000')">
 Buy
 </button>
 </div>
@@ -199,7 +255,7 @@ Buy
 
 
 <!-- Premium -->
-<div id="premium" style="display:none">
+<div id="premium" style="display:flex">
 
 <h1>👑 Premium</h1>
 
@@ -239,7 +295,7 @@ Buy
 
 
 <!-- NFT -->
-<div id="nft" style="display:none">
+<div id="nft" style="display:flex">
 
 <h1>🛸 NFT</h1>
 
@@ -261,17 +317,17 @@ Buy
 <script>
 
 function showPage(page){
-homePage.style.display="none";
+homePage.style.display="flex";
 shopPage.style.display="block";
 }
 
 function showCategory(type){
 
-menu.style.display="none";
+menu.style.display="flex";
 
 stars.style.display="none";
 premium.style.display="none";
-nft.style.display="none";
+nft.style.display="flex";
 
 document.getElementById(type).style.display="block";
 
@@ -281,9 +337,9 @@ function backMenu(){
 
 menu.style.display="grid";
 
-stars.style.display="none";
-premium.style.display="none";
-nft.style.display="none";
+stars.style.display="flex";
+premium.style.display="flex";
+nft.style.display="flex";
 
 }
 
@@ -291,7 +347,7 @@ function buy(product){
 
 window.open(
 "https://t.me/AiKipa?text="+
-encodeURIComponent(product+" ဝယ်ယူချင်ပါတယ်")
+encodeURIComponent(product+"ဝယ်ပါမယ်")
 );
 
 }
