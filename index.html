@@ -104,13 +104,6 @@ margin-top:20px;
 background:linear-gradient(45deg,#00ffff,#00bfff);
 color:black;
 }
-
-/* ADMIN */
-#adminPage{
-display:none;
-margin-top:20px;
-}
-
 .logBox{
 text-align:left;
 background:#111;
@@ -231,22 +224,6 @@ NFT Buy/Sell
 
 <button class="back" onclick="backMenu()">⬅ Back</button>
 </div>
-
-<!-- ADMIN PANEL -->
-<div id="Data" class="container">
-
-<h1>Orders-Log👛</h1>
-
-<div class="logBox" id="logBox"></div>
-
-<button class="smallBtn" onclick="loadLogs()">Refresh</button>
-<button class="smallBtn" onclick="clearLogs()">Clear</button>
-<button class="back" onclick="goHome()">Back</button>
-
-</div>
-
-</div>
-
 <script>
 
 const homePage = document.getElementById("homePage");
@@ -255,13 +232,12 @@ const menu = document.getElementById("menu");
 const stars = document.getElementById("stars");
 const premium = document.getElementById("premium");
 const nft = document.getElementById("nft");
-const adminPage = document.getElementById("adminPage");
+
 
 function showPage(){
 homePage.style.display="none";
 shopPage.style.display="block";
 menu.style.display="grid";
-adminPage.style.display="none";
 }
 
 function showCategory(type){
@@ -296,45 +272,12 @@ localStorage.setItem("orders", JSON.stringify(logs));
 
 window.open("https://t.me/AiKipa?text="+encodeURIComponent(product+" ဝယ်ယူချင်ပါတယ်"));
 }
-
-/* ADMIN */
-function openAdmin(){
-homePage.style.display="none";
-shopPage.style.display="none";
-adminPage.style.display="block";
-loadLogs();
-}
-
-function loadLogs(){
-
-let logs = JSON.parse(localStorage.getItem("orders")) || [];
-let box = document.getElementById("logBox");
-
-box.innerHTML="";
-
-logs.forEach((l,i)=>{
-box.innerHTML += `
-<div class="card">
-#${i+1}<br>
-${l.product}<br>
-${l.time}
-</div>
-`;
-});
-
-if(logs.length===0){
-box.innerHTML="No orders yet";
-}
-}
-
-function clearLogs(){
-localStorage.removeItem("orders");
-loadLogs();
-}
-
-function goHome(){
-adminPage.style.display="none";
-homePage.style.display="flex";
+function buy(product){
+let price = "";
+const prices = { "50 Stars":"3500 Ks", "100 Stars":"7000 Ks", "150 Stars":"10400 Ks", "200 Stars":"13800 Ks", "250 Stars":"17400 Ks", "300 Stars":"20800 Ks", "350 Stars":"24400 Ks", "400 Stars":"27800 Ks", "450 Stars":"31400 Ks", "500 Stars":"34800 Ks", "1000 Stars":"69500 Ks", "1500 Stars":"104500 Ks", "Premium 3 Months":"55000 Ks", "Premium 6 Months":"73600 Ks", "Premium 12 Months":"134000 Ks", "NFT":"Contact Admin" };
+price = prices[product] || "";
+const text = "🛒 Order Request\n\n" + "📦 Product : " + product + "\n" + "💰 Price : " + price + "\n\n" + "ဝယ်ယူချင်ပါတယ်";
+window.open( "https://t.me/AiKipa?text=" + encodeURIComponent(text) );
 }
 
 </script>
